@@ -10,7 +10,7 @@
     </div>
     <div class="row" style="width: 1280px;margin: 0px;height: auto;">
         <div class="col-xl-2" id="grad" style="height: 740px;background-color: #4684cd;padding: 0;padding-top: 84px;">
-            <div class="row" style="height: 55px;width: auto;margin: 0px;margin-top: 10px;">
+            <a [routerLink]="['/new']"><div class="row" style="height: 55px;width: auto;margin: 0px;margin-top: 10px;">
                 <div class="col hover-btn-1" data-bs-hover-animate="pulse"
                     style="padding: 7px;padding-top: 15px;padding-left: 22px;margin: 0px 0px;margin-bottom: 0px;"><i
                         class="fa fa-folder-open"
@@ -19,7 +19,7 @@
                         style="color: rgb(255,255,255);font-size: 17px;font-weight: normal;height: 25px;margin: 0px;margin-bottom: 0px;margin-right: 0px;">
                         &nbsp;New &amp; Compose</p>
                 </div>
-            </div>
+            </div></a>
             <div class="row" style="height: 55px;width: auto;margin: 0px;margin-top: 10px;">
                 <div class="col hover-btn-1" data-bs-hover-animate="pulse"
                     style="padding: 7px;padding-top: 15px;padding-left: 22px;"><i class="fa fa-search"
@@ -29,7 +29,7 @@
                         Job Search</p>
                 </div>
             </div>
-            <div class="row" style="height: 55px;width: auto;margin: 0px;margin-top: 10px;">
+            <a [routerLink]="['/edit']"><div class="row" style="height: 55px;width: auto;margin: 0px;margin-top: 10px;">
                 <div class="col hover-btn-1" data-bs-hover-animate="pulse"
                     style="padding: 12px;padding-top: 15px;padding-left: 22px;"><i class="fa fa-address-book"
                         style="color: rgb(255,255,255);font-size: 22px;width: 36px;height: 0;margin-top: 1px;"></i>
@@ -37,10 +37,10 @@
                         style="color: rgb(255,255,255);font-size: 17px;font-weight: normal;height: 25px;margin: 0px;margin-bottom: 0px;margin-right:  0px;">
                         Users Info</p>
                 </div>
-            </div>
+            </div></a>
         </div>
         <div class="col"
-            style="color: rgb(255,255,255);font-weight: normal;height: 735px; width: ;margin: 0px;margin-bottom: 0px;margin-right: 0px;">
+            style="font-weight: normal;height: 735px; width: 1066px  ;margin: 0px;margin-bottom: 0px;margin-right: 0px;">
             <router-outlet></router-outlet>
         </div>
     </div>
