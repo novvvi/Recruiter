@@ -3,7 +3,7 @@ import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { DatabaseService } from './database.service'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NewComponent } from './components/new/new.component';
 import { EditComponent } from './components/edit/edit.component';
 import { ShowComponent } from './components/show/show.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     WebviewDirective,
     NewComponent,
     EditComponent,
-    ShowComponent
+    ShowComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [ElectronService],
+  providers: [ElectronService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

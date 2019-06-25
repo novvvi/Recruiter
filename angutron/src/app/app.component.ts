@@ -11,6 +11,7 @@ import { AppConfig } from '../environments/environment';
 export class AppComponent {
   constructor(public electronService: ElectronService,
     private translate: TranslateService) {
+      
 
     translate.setDefaultLang('en');
     console.log('AppConfig', AppConfig);
@@ -22,5 +23,12 @@ export class AppComponent {
     } else {
       console.log('Mode web');
     }
+  }
+  closeWindow() {
+    this.electronService.window.close();
+  }
+ 
+  minimizeWindow() {
+    this.electronService.window.minimize();
   }
 }
