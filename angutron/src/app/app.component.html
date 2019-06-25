@@ -24,9 +24,9 @@
                 <div class="col hover-btn-1" data-bs-hover-animate="pulse"
                     style="padding: 7px;padding-top: 15px;padding-left: 22px;"><i class="fa fa-search"
                         style="color: rgb(255,255,255);font-size: 22px;width: 37px;height: 0;margin-top: 1px;"></i>
-                    <p class="d-inline-block"
+                    <a  class="d-inline-block"
                         style="color: rgb(255,255,255);font-size: 17px;font-weight: normal;height: 25px;margin: 0px;margin-bottom: 0px;margin-right: 0px;">
-                        Job Search</p>
+                        Job Search</a>
                 </div>
             </div>
             <a [routerLink]="['/edit']"><div class="row" style="height: 55px;width: auto;margin: 0px;margin-top: 10px;">
@@ -39,8 +39,7 @@
                 </div>
             </div></a>
         </div>
-        <div class="col"
-            style="font-weight: normal;height: 735px; width: 1066px  ;margin: 0px;margin-bottom: 0px;margin-right: 0px;">
+        <div class="col" style="font-weight: normal;height: 735px; width: 1066px;margin: 0px;margin-bottom: 0px;margin-right: 0px;">
             <router-outlet></router-outlet>
         </div>
     </div>
