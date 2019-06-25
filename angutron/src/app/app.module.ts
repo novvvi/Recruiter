@@ -18,10 +18,9 @@ import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { NewComponent } from './new/new.component';
-import { EditComponent } from './edit/edit.component';
-import { ShowComponent } from './show/show.component';
-import { IndexComponent } from './index/index.component';
+import { NewComponent } from './components/new/new.component';
+import { EditComponent } from './components/edit/edit.component';
+import { ShowComponent } from './components/show/show.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,8 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     WebviewDirective,
     NewComponent,
     EditComponent,
-    ShowComponent,
-    IndexComponent
+    ShowComponent
   ],
   imports: [
     BrowserModule,
