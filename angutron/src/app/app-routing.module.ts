@@ -6,6 +6,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { ShowComponent } from './components/show/show.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
+
 const routes: Routes = [
     {
         path: '',
@@ -24,7 +25,7 @@ const routes: Routes = [
         component: ShowComponent
     },
     { path: '', pathMatch: 'full', redirectTo: '/' },
-  { path: '**', component: PagenotfoundComponent }
+    { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({
