@@ -87,9 +87,9 @@ var UserSchema = new mongoose.Schema({
         trim: true
     },
     phoneNumber: {
-        type: String,
-        trim: true,
-        unique: true,
+        type: Number,
+        // trim: true,
+        // unique: true,
         required: [true, "Please enter your phone number '(000)-000-0000'."],
     },
     keyword: {
@@ -98,7 +98,6 @@ var UserSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        trim: true,
         require: [true, "Please enter your full address."]
     },
     
@@ -109,4 +108,4 @@ UserSchema.plugin(uniqueValidator, {
     message: 'is already taken.'
 });
 
-module.exports = mongoose.model('Recruiter', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

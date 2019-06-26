@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 require('../models/models.js');
 
-var Recruiter = mongoose.model('Recruiter'); 
+var User = mongoose.model('User'); 
 
 module.exports={
     index: function(req, res){
-        Recruiter.find({}).sort({title: 1}).exec(function(err, user){
+        User.find({}).sort({title: 1}).exec(function(err, user){
             if(err){
             console.log("Returned error", err);
                 res.json({
@@ -44,7 +44,7 @@ module.exports={
     },
 
     update: function(req,res){
-        Recruiter.findByIdAndUpdate(req.params.id, {$set: req.body},  { runValidators: true, context: 'query' }, function(err,user){
+        User.findByIdAndUpdate(req.params.id, {$set: req.body},  { runValidators: true, context: 'query' }, function(err,user){
                 if(err){
                     console.log("something went wrong in edit", err);
                     res.json({
