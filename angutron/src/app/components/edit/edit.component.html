@@ -1,7 +1,7 @@
 <div class="col"
   style="color: rgb(255,255,255);font-size: 17px;font-weight: normal;height: 735px;margin: 0px;margin-bottom: 0px;margin-right: px;width: 1066px;">
   <div style="height: 652px;width: 1041px;">
-    <form>
+    <form (submit)="onSubmit()">
       <p class="d-xl-flex align-items-xl-center infotitle">Personal Info</p>
       <div class="border rounded shadow userinfo">
         <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
@@ -38,7 +38,7 @@
             </div>
           <div class="d-inline-block float-left" style="height: 44px;width: 910px;margin-top: 10px;margin-left: 20px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Title</label>
-            <input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
+            <input [(ngModel)]="experience.title" name="experience.title" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 22px;width: 60px;">Start</label>
               <input [(ngModel)]="experience.start" name="experience.start" class="form-control d-inline-block float-left"
               type="date" style="width: 168px;">
@@ -57,7 +57,7 @@
         </div>
       </div>
       <button [routerLink]="['/']" class="btn btn-primary" type="button" style="margin-left: 500px;width: 105px;">Cancel</button>
-      <button class="btn btn-primary" type="button" style="margin-left: 54px;width: 109px;">Submit</button>
+      <button class="btn btn-primary" type="submit" style="margin-left: 54px;width: 109px;">Submit</button>
       <button (click)="addSkill()" class="btn btn-primary" type="button" style="margin-left: 54px;width: 109px;">Add Experience</button>
     </form>
   </div>

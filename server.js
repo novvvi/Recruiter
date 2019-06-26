@@ -15,6 +15,6 @@ app.all("*", (req, res, next) => {
     res.sendFile(path.resolve("./public/dist/public/index.html"))
 });
 
-app.listen(8000, function() {
+app.listen(4200, function() {
     console.log("8000 running");
 })
