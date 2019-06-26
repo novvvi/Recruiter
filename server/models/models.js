@@ -15,19 +15,19 @@ var AddressSchema = {
         trim: true
     },
     city: {
-        String,
+        type: String,
         trim: true
     },
     state: {
-        String,
+        type: String,
         trim: true
     },
     country: {
-        String,
+        type: String,
         trim: true
     },
     zip: {
-        String,
+        type: String,
         validate: [/^$|^[0-9]{5}$/, 'ValidationError'],
         trim: true
     }
@@ -110,5 +110,4 @@ UserSchema.plugin(uniqueValidator, {
     message: 'is already taken.'
 });
 
-module.exports = mongoose.model('User', UserSchema);
-module.exports = mongoose.model('Experience', ExperienceSchema)
+module.exports = mongoose.model('Recruiter', UserSchema);
