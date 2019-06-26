@@ -10,14 +10,14 @@ export class DatabaseService {
 
   constructor(private _http: HttpClient){}
 
-  getAllJobs() {
-    return interval(5000)
-      .pipe(
-        startWith(0),
-        switchMap(() => this._http.get("http://api.openweathermap.org/data/2.5/weather?id=4887398&APPID=93447b78ed332dc0065cc3d3cb874fe6")),
-        map(res => res)
-      )
-  }
+  // getAllJobs() {
+  //   return interval(5000)
+  //     .pipe(
+  //       startWith(0),
+  //       switchMap(() => this._http.get("http://api.openweathermap.org/data/2.5/weather?id=4887398&APPID=93447b78ed332dc0065cc3d3cb874fe6")),
+  //       map(res => res)
+  //     )
+  // }
 
   getAll(){
     return this._http.get('/user')
