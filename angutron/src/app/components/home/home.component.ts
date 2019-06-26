@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, APP_ID } from '@angular/core';
 import { ElectronService } from '../../providers/electron.service';
 import { DatabaseService } from '../../database.service';
 
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
  minimizeWindow() {
    this.electron.window.minimize();
  }
+
 
 //  keyword() {
 //    let observable = this.data.getAllJobs();

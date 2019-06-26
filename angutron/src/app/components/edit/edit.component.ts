@@ -47,7 +47,8 @@ export class EditComponent implements OnInit {
       this.user.experience = [];
       this._router.navigate(['/']);
     } else {
-      this.errors.push(data['error']['errors']['name']['message'])
+      console.log(data)
+      // this.errors.push(data['error']['errors']['name']['message'])
     }
     })
   }

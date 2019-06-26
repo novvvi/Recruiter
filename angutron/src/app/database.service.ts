@@ -54,6 +54,7 @@ export class DatabaseService {
       jobList.push(jobJSON);
     }
   }
+
   
 }
 
