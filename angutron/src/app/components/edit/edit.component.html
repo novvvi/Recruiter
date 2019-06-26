@@ -26,7 +26,7 @@
         <div class="border rounded shadow experiance-info">
           <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Type</label>
-            <select [(ngModel)]="newExperience.type" name="newExperience.type" class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
+            <select [(ngModel)]="newExperience.ExpType" name="newExperience.ExpType" class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
               <optgroup label="Pick Type">
                 <option name="newExperience.type" value="company" selected="">Company</option>
                 <option name="newExperience.type" value="school">School</option>
@@ -34,26 +34,26 @@
             </select>
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
               style="margin-left: 29px;width: 101px;">Name</label>
-              <input [(ngModel)]="newExperience.name" name="newExperience.name" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
+              <input [(ngModel)]="newExperience.ExpName" name="newExperience.ExpName" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
             </div>
           <div class="d-inline-block float-left" style="height: 44px;width: 910px;margin-top: 10px;margin-left: 20px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Title</label>
-            <input [(ngModel)]="newExperience.title" name="newExperience.title" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
+            <input [(ngModel)]="newExperience.ExpTitle" name="newExperience.ExpTitle" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 22px;width: 60px;">Start</label>
-              <input [(ngModel)]="newExperience.start" name="newExperience.start" class="form-control d-inline-block float-left"
+              <input [(ngModel)]="newExperience.ExpStartDate" name="newExperience.ExpStartDate" class="form-control d-inline-block float-left"
               type="date" style="width: 168px;">
               <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
               style="margin-left: 22px;width: 68px;">End</label>
-              <input [(ngModel)]="newExperience.end" name="newExperience.end" class="form-control d-inline-block float-left"
+              <input [(ngModel)]="newExperience.ExpEndDate" name="newExperience.ExpEndDate" class="form-control d-inline-block float-left"
               type="date" style="width: 168px;">
             </div>
           <div class="d-inline-block float-left" style="height: 35pxpx;width: 910px;margin-top: 10px;margin-left: 20px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Specialty</label>
-            <input [(ngModel)]="newExperience.specialty" name="newExperience.specialty" class="form-control" type="text" style="height: 35px;width: 804px;">
+            <input [(ngModel)]="newExperience.ExpSpecialty" name="newExperience.ExpSpecialty" class="form-control" type="text" style="height: 35px;width: 804px;">
           </div>
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
             style="margin-left: 21px;">Detail</label>
-            <textarea [(ngModel)]="newExperience.details" name="newExperience.details" class="form-control" style="margin-right: 28px;width: 910px;margin-left: 19px;height: 155px;"></textarea>
+            <textarea [(ngModel)]="newExperience.ExpDetails" name="newExperience.ExpDetails" class="form-control" style="margin-right: 28px;width: 910px;margin-left: 19px;height: 155px;"></textarea>
         </div>
       </div>
       <button [routerLink]="['/']" class="btn btn-primary" type="button" style="margin-left: 500px;width: 105px;">Cancel</button>

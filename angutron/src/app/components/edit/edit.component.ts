@@ -10,23 +10,6 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 export class EditComponent implements OnInit {
   newUser;
   errors = [];
-  newExperience;
-  // user = {
-  //   fullName: '',
-  //   phoneNumber: '',
-  //   email: '',
-  //   address: '',
-  //   experience: [],
-  // }
-  // experience = {
-  //   type: '',
-  //   name: '',
-  //   title: '',
-  //   specialty: '',
-  //   details: '',
-  // }
-  
-
   constructor(
     private _httpService: DatabaseService,
     private _route: ActivatedRoute,
@@ -39,14 +22,13 @@ export class EditComponent implements OnInit {
       phoneNumber: '',
       email: '',
       address: '',
-      experience: []
-    }
-    this.newExperience = {
-      type: '',
-      name: '',
-      title: '',
-      specialty: '',
-      details: '',
+      ExpType: '',
+      ExpName: '',
+      ExpTitle: '',
+      ExpSpecialty: '',
+      ExpDetails: '',
+      ExpStartDate: '',
+      ExpEndDate: ''
     }
   }
 

@@ -2,32 +2,24 @@ const mongoose = require('mongoose');
 require('../models/models.js');
 
 var User = mongoose.model('User');
-
 module.exports = {
     index: (req, res) => {
         User.find({}, (err, data) => {
             if (err) {
                 res.json({ message: "Error", error: err });
             } else {
-                console.log(data);
+                console.log(data)
                 res.json({ message: "Success", data: data });
             }
-        })
-        .sort({ title: 1 })
+        }).sort({ title: 1 }) // open to modifications 
     },
     create: (req, res) => {
         console.log("POST DATA : ", req.body);
         User.create(req.body, (err, data) => {
             if (err) {
-                res.json({
-                    message: "Error",
-                    error: err
-                });
+                res.json({ message: "Error", error: err });
             } else {
-                res.json({
-                    message: "Success",
-                    data: data
-                });
+                res.json({ message: "Success", data: data });
             }
         })
     },
