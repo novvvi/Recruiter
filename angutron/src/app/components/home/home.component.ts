@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
  constructor(private electron: ElectronService, private data: DatabaseService) { }
 
  ngOnInit() {
-   this.keyword()
+  //  this.keyword()
  }
 
  closeWindow() {
@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
    this.electron.window.minimize();
  }
 
- keyword() {
-   let observable = this.data.getAllJobs();
-   observable.subscribe(data => {
-     console.log(data);
-     this.jobInfo = data;
-   })
- }
+//  keyword() {
+//    let observable = this.data.getAllJobs();
+//    observable.subscribe(data => {
+//      console.log(data);
+//      this.jobInfo = data;
+//    })
+//  }
 }
