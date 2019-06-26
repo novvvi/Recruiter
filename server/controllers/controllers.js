@@ -31,16 +31,11 @@ module.exports = {
         }, function (err, user) {
             if (err) {
                 console.log("something went wrong in edit", err);
-                res.json({
-                    message: "Error",
-                    error: err
+                res.json({  message: "Error", error: err
                 })
             } else {
                 console.log("Successfully edited author!");
-                res.json({
-                    message: "Success",
-                    user: user
-                });
+                res.json({  message: "Success", user: user });
             }
         })
     }
