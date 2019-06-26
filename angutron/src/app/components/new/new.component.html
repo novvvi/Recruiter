@@ -1,35 +1,12 @@
-<div class="container d-flex justify-content-around">
-  <div class="d-inline-block spp">
-    <br>
-      <form (submit)="onSubmit()">
-          <h2 class="text-center">User Information</h2>
-
-          <label class="text-center">First Name:</label>
-          <input class="form-control" type="text" placeholder="First Name" [(ngModel)]="user.fn" name="user.fn">
-
-          <label class="text-center">Last Name:</label>
-          <input class="form-control" type="text" placeholder="Last Name" [(ngModel)]="user.ln" name="user.ln">
-
-          <label>Primary Phone:</label>
-          <input class="form-control" type="text" placeholder="Phone Number" [(ngModel)]="user.phone" name="user.phone">
-
-          <label>Email:</label>
-          <input class="form-control" type="text" placeholder="Description" [(ngModel)]="user.email" name="user.email">
-
-          <label>Address:</label>
-          <input class="form-control" type="text" placeholder="Description" [(ngModel)]="user.address" name="user.address">
-          <br>
-          <p class="text-center">Skills (optional):</p>
-          <div class="form-group row" id="skill">
-              <label class="col-sm-2 col-form-label">Skill:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="Skills" [(ngModel)]="user.skills" name="user.skills">
-                <br>
-              </div>
-            </div>
-          <button type="submit" class="btn btn-primary sp" style="margin-right: 15px;">Submit</button>
-          <button [routerLink]="['/']" class="btn btn-primary" style="margin-right: 15px;">Cancel</button>
-          <button (click)="addSkill()" class="btn btn-primary">Add Skill</button>
-      </form>
-      </div>
-  </div>
+<div style="height: 714px;width: 1041px;">
+    <form>
+        <p class="d-xl-flex align-items-xl-center infotitle">Cover Letter</p>
+        <div class="border rounded shadow userinfo">
+            <div style="height: 215px;width: 940px;margin-top: 10px;margin-left: 5px;"></div><button class="btn btn-primary" type="button" style="margin-left: 810px;">Generate</button></div>
+    </form>
+    <form>
+        <p class="d-xl-flex align-items-xl-center infotitle" style="margin-top: 0px;">Resume</p>
+        <div class="border rounded shadow userinfo">
+            <div style="height: 215px;width: 940px;margin-top: 10px;margin-left: 5px;"></div><button class="btn btn-primary" type="button" style="margin-left: 810px;">Generate</button></div>
+    </form>
+</div>
