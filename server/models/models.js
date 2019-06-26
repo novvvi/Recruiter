@@ -88,13 +88,9 @@ var UserSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: Number,
-        // trim: true,
-        // unique: true,
+        trim: true,
+        unique: true,
         required: [true, "Please enter your phone number '(000)-000-0000'."],
-    },
-    keyword: {
-        type: String,
-        trim: true
     },
     address: {
         type: String,
