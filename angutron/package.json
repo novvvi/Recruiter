@@ -43,12 +43,12 @@
     "@angular/common": "8.0.0",
     "@angular/compiler": "8.0.0",
     "@angular/compiler-cli": "8.0.0",
-    "@angular/core": "8.0.0",
+    "@angular/core": "^8.0.0",
     "@angular/forms": "8.0.0",
     "@angular/language-service": "8.0.0",
     "@angular/platform-browser": "8.0.0",
     "@angular/platform-browser-dynamic": "8.0.0",
-    "@angular/router": "8.0.0",
+    "@angular/router": "^8.0.0",
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "@types/jasmine": "2.8.7",
@@ -82,5 +82,8 @@
   },
   "engines": {
     "node": ">=10.9.0"
+  },
+  "dependencies": {
+    "i": "^0.3.6"
   }
 }

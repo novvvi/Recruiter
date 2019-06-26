@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
   user = {
-    name: '',
+    fullName: '',
     phone: '',
     email: '',
     address: '',
@@ -40,7 +40,7 @@ export class EditComponent implements OnInit {
     observable.subscribe(data => {
       if(data['message'] === "Success"){
       console.log("created author", data);
-      this.user.name = '';
+      this.user.fullName = '';
       this.user.phone = '';
       this.user.email = '';
       this.user.address = '';
