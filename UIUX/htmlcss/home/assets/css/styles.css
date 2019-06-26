@@ -11,14 +11,14 @@ min-n-close {
 }
 
 form {
-  height: 355px;
+  height: 128px;
   padding: 0px 18px;
   min-height: -3px;
 }
 
 .userinfo {
   background-color: #ffffff;
-  height: 292px;
+  height: 75px;
   margin-top: 5px;
   width: 1000px;
   padding-left: 26px;
