@@ -2,16 +2,13 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 
 var ExperienceSchema = new mongoose.Schema({
-    company: {
-        type: String,
-        default: '',
-        required: 'Please enter a company',
-        trim: true
+    type: {
+        type: String
     },
-    school: {
+    name: {
         type: String,
-        default: '',
-        required: 'Please enter a school',
+        default: "",
+        required: 'Please enter a name',
         trim: true
     },
     title: {
@@ -20,7 +17,7 @@ var ExperienceSchema = new mongoose.Schema({
 		trim: true,
 		required: 'Please enter a title'
     },
-    tasks: {
+    specialty: {
         type: String,
         required: 'Please enter tasks',
         trim: true
