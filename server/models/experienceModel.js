@@ -5,13 +5,19 @@ var ExperienceSchema = new mongoose.Schema({
     type: {
         type: String
     },
+    name: {
+        type: String,
+        default: "",
+        required: 'Please enter a name',
+        trim: true
+    },
     title: {
         type: String,
 		default: '',
 		trim: true,
 		required: 'Please enter a title'
     },
-    tasks: {
+    specialty: {
         type: String,
         required: 'Please enter tasks',
         trim: true
