@@ -5,7 +5,7 @@ var validateEmail = (email) => {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
 };
-var addressSchema = {
+var AddressSchema = {
     street1: {
         type: String,
         trim: true
@@ -32,6 +32,45 @@ var addressSchema = {
         trim: true
     }
 }
+var ExperienceSchema = {
+    type: {
+        type: String
+    },
+    name: {
+        type: String,
+        default: "",
+        required: 'Please enter a name',
+        trim: true
+    },
+    title: {
+        type: String,
+		default: '',
+		trim: true,
+		required: 'Please enter a title'
+    },
+    specialty: {
+        type: String,
+        required: 'Please enter tasks',
+        trim: true
+    },
+    details: {
+        type: String,
+        default: '',
+        trim: true,
+        required: 'Please enter details'
+    },
+    startDate: {
+        type: Date,
+        default: new Date(+new Date() + 7*24*60*60*1000),
+        default: () => Date.now() + 7*24*60*60*1000 // need to ceeck which one works
+    },
+    endDate: {
+        type: Date,
+        default: new Date(+new Date() + 7*24*60*60*1000),
+        default: () => Date.now() + 7*24*60*60*1000 // need to ceeck which one works
+    }
+}
+
 var UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -62,16 +101,14 @@ var UserSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    address: [addressSchema],
+    address: [AddressSchema],
     
-    // this will link the experienceModel.js
-    _experience: {type: Schema.Types.ObjectID, ref: 'Experience'}
-}, {
-    timestamps: true
-})
+    experience: [ExperienceSchema]
+}, {timestamps: true})
 
 UserSchema.plugin(uniqueValidator, {
     message: 'is already taken.'
 });
 
 module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Experience', ExperienceSchema)
