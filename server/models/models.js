@@ -5,33 +5,33 @@ var validateEmail = (email) => {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
 };
-var AddressSchema = {
-    street1: {
-        type: String,
-        trim: true
-    },
-    street2: {
-        type: String,
-        trim: true
-    },
-    city: {
-        type: String,
-        trim: true
-    },
-    state: {
-        type: String,
-        trim: true
-    },
-    country: {
-        type: String,
-        trim: true
-    },
-    zip: {
-        type: String,
-        validate: [/^$|^[0-9]{5}$/, 'ValidationError'],
-        trim: true
-    }
-}
+// var AddressSchema = {
+//     street1: {
+//         type: String,
+//         trim: true
+//     },
+//     street2: {
+//         type: String,
+//         trim: true
+//     },
+//     city: {
+//         type: String,
+//         trim: true
+//     },
+//     state: {
+//         type: String,
+//         trim: true
+//     },
+//     country: {
+//         type: String,
+//         trim: true
+//     },
+//     zip: {
+//         type: String,
+//         validate: [/^$|^[0-9]{5}$/, 'ValidationError'],
+//         trim: true
+//     }
+// }
 var ExperienceSchema = {
     type: {
         type: String
@@ -72,15 +72,10 @@ var ExperienceSchema = {
 }
 
 var UserSchema = new mongoose.Schema({
-    firstName: {
+    fullName: {
         type: String,
         trim: true,
-        required: [true, "Please enter your first name."]
-    },
-    lastName: {
-        type: String,
-        trim: true,
-        required: [true, "Please enter your last name."]
+        required: [true, "Please enter your full name."]
     },
     email: {
         type: String,
@@ -101,7 +96,11 @@ var UserSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    address: [AddressSchema],
+    address: {
+        type: String,
+        trim: true,
+        require: [true, "Please enter your full address."]
+    },
     
     experience: [ExperienceSchema]
 }, {timestamps: true})
