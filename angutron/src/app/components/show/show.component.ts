@@ -46,3 +46,4 @@ export class ShowComponent implements OnInit {
     this.getUser(this.userId);
   }
 }
+
