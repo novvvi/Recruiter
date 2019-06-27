@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-home-info',
-  templateUrl: './home-info.component.html',
-  styleUrls: ['./home-info.component.scss']
+  selector: 'app-show',
+  templateUrl: './show.component.html',
+  styleUrls: ['./show.component.scss']
 })
-export class HomeInfoComponent implements OnInit {
-
+export class ShowComponent implements OnInit {
+  @Input() jobToShow: any;
   constructor() { }
 
   ngOnInit() {
+    
   }
-
 }
