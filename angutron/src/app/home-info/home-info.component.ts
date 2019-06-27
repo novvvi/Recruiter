@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-info.component.scss']
 })
 export class HomeInfoComponent implements OnInit {
-
+  @Input() jobToShow: any;
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

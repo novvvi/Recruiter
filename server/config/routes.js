@@ -16,7 +16,7 @@ module.exports = function(app){
         user.update(req,res);
     })
 
-    app.get('/api/indeed', (req, res) => {
+    app.post('/api/indeed', (req, res) => {
         request({uri: `https://www.indeed.com/jobs?q=${req.keyword}&l=${req.location}&sort=date`}, 
             function(error, response, body) {
             // var $ = cheerio.load(body);
