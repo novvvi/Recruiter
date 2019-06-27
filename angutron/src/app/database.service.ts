@@ -10,33 +10,27 @@ export class DatabaseService {
 
   constructor(private _http: HttpClient){}
 
-  // getAllJobs() {
-  //   return interval(5000)
-  //     .pipe(
-  //       startWith(0),
-  //       switchMap(() => this._http.get("http://api.openweathermap.org/data/2.5/weather?id=4887398&APPID=93447b78ed332dc0065cc3d3cb874fe6")),
-  //       map(res => res)
-  //     )
-  // }
-
   getAll(){
     return this._http.get('/user')
+  }
+
+  getUser(id){
+    return this._http.get(`/user/${id}`)
   }
 
   create(user:any){
     return this._http.post('/create', user)
   }
 
-  update(id:any, user:any){
-    return this._http.put(`/user/edit/${id}`, user)
+  update(id){
+    return this._http.put(`/user/edit/${id}`, id)
   }
 
-  createExp(id:any,exp:any){
-    return this._http.post(`create/exp/${id}`, exp)
+  destroyUser(id){
+    return this._http.delete(`/destroy/user/${id}`)
   }
 
   // here is what you need to use for parsing indeed
-
   parsingOnePage(doc) {
     var selectedClasses = ["title", "sjcl", "summary", "iaWrapper", "jobsearch-SerpJobCard-footer"]
     var jobList = []

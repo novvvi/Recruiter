@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NewComponent,
     EditComponent,
     ShowComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,

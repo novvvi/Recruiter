@@ -44,6 +44,7 @@ export class EditComponent implements OnInit {
       if (data['message'] === "Success") {
         console.log("created author", data);
         console.log(data['data']['_id'])
+        
         // this._httpService.createExp(data['data']['_id'], this.experience).subscribe(data => {
         //   if (data['message'] === "Success") {
         //     console.log("created author", data);
