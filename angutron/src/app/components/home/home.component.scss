@@ -113,3 +113,31 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+b, strong {
+  font-weight: bolder;
+  font-size: 23px;
+}
+
+.box1 {
+  color: rgb(11, 25, 59);
+  padding: 10px;
+  border: 1px solid rgba(11, 25, 59, 0.342);
+}
+
+.h3, h3 {
+  font-size: 1.30rem;
+  color: rgba(11, 25, 59, 0.705);
+  margin: 0px 0px 3px 0px;
+}
+
+.h5, h5 {
+  font-size: 1.25rem;
+  color: rgba(11, 25, 59, 0.493);
+  margin: 0px 0px 5px 0px;
+}
+
+.h6, h6 {
+  font-size: 1rem;
+  color: rgba(11, 25, 59, 0.705);
+}

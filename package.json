@@ -25,6 +25,7 @@
     "mongoose": "^5.6.1",
     "mongoose-unique-validator": "^2.0.3",
     "path": "^0.12.7",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "jsdom": "^15.1.1"
   }
 }

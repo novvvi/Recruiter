@@ -1,24 +1,31 @@
 <div class="container">
   <div style="height: 714px;width: 1041px;">
-    <form>
+    <form (submit)="OnSubmit()">
       <p class="d-xl-flex align-items-xl-center infotitle">Search / Config</p>
       <div class="border rounded shadow userinfo">
-          <div style="height: 50px;width: 910px;margin-top: 10px;margin-left: 20px;"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 179px;" placeholder="search"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 216px;margin-left: 23px;"
+          <div style="height: 50px;width: 910px;margin-top: 10px;margin-left: 20px;"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 179px;" name="keyword" placeholder="search"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 216px;margin-left: 23px;" name="location"
                   placeholder="location"><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 15px; width: 72px;">refresh</label><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
                   style="width: 72px;"><input type="checkbox"></label><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="width: 72px;">auto</label><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
-                  style="width: 75px;"><input type="checkbox"></label><button class="btn btn-primary" type="button" style="margin-left: 106px;">apply</button></div>
+                  style="width: 75px;"><input type="checkbox"></label><button class="btn btn-primary" type="submit" style="margin-left: 106px;">Apply</button></div>
       </div>
     </form>
     <div class="row" style="width: 1041px;margin-right: 0px;margin-left: 0px;height: 549px;">
       <div class="col-md-6" style="width: 523px;">
         <p class="d-xl-flex align-items-xl-center infotitle" style="margin-left: 2px;font-size: 23px;height: 35px;">Job
           Posts</p>
-        <div class="border rounded shadow" style="height: 530px;overflow: scroll;"></div>
+        <div class="border rounded shadow" style="height: 530px;overflow: scroll;">
+          <div *ngFor="let job of allJobs" class="box1" (click)="jobToShow(job)">
+            <a><u><b>{{job.title}}</b></u></a>
+            <h3>{{job.sjcl}}</h3>
+            <h5>{{job.city}}</h5>
+            <h6>{{job.summary}}</h6>
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
-        <p class="d-xl-flex align-items-xl-center infotitle" style="margin-left: 2px;font-size: 23px;height: 35px;">New
-          Jobs</p>
-        <div class="border rounded shadow" style="height: 530px;overflow: scroll;"></div>
+        <p class="d-xl-flex align-items-xl-center infotitle" style="margin-left: 2px;font-size: 23px;height: 35px;">Job
+          Details</p>
+        <div class="border rounded shadow" style="height: 530px;overflow: scroll;"><app-home-info *ngIf="selectedJob" [jobToShow]="selectedJob"></app-home-info></div>
       </div>
     </div>
   </div>
