@@ -12,6 +12,7 @@ export class DatabaseService {
 
 
   getAllJobs(submit) {
+    // return this._http.post('/api/indeed', submit);
     return interval(300000)
       .pipe(
         startWith(0),

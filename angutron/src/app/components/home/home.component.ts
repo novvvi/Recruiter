@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private electron: ElectronService, private data: DatabaseService) { }
 
   ngOnInit() {
-    
+    this.submit = {keyword: "", location: ""};
   }
 
   OnSubmit() {
@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
     console.log(observable);
     observable.subscribe(data => {
       this.allJobs = data['result'];
+      console.log(this.allJobs);
+      console.log(this.submit);
+      this.submit = {keyword: "", location: ""};
     })
 
   }

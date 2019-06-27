@@ -3,7 +3,7 @@
     <form (submit)="OnSubmit()">
       <p class="d-xl-flex align-items-xl-center infotitle">Search / Config</p>
       <div class="border rounded shadow userinfo">
-          <div style="height: 50px;width: 910px;margin-top: 10px;margin-left: 20px;"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 179px;" name="keyword" placeholder="search"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 216px;margin-left: 23px;" name="location"
+          <div style="height: 50px;width: 910px;margin-top: 10px;margin-left: 20px;"><input [(ngModel)]="submit.keyword" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 179px;" name="submit.keyword" placeholder="search"><input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 216px;margin-left: 23px;" [(ngModel)]="submit.location" name="submit.location"
                   placeholder="location"><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 15px; width: 72px;">refresh</label><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
                   style="width: 72px;"><input type="checkbox"></label><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="width: 72px;">auto</label><label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
                   style="width: 75px;"><input type="checkbox"></label><button class="btn btn-primary" type="submit" style="margin-left: 106px;">Apply</button></div>

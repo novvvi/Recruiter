@@ -25,7 +25,7 @@ module.exports = function(app){
     })
 
     app.post('/api/indeed', (req, res) => {
-        request({uri: `https://www.indeed.com/jobs?q=${req.keyword}&l=${req.location}&sort=date`}, 
+        request({uri: `https://www.indeed.com/jobs?q=${req.body.keyword}&l=${req.body.location}%1C+IL&sort=date`},
             function(error, response, body) {
             // var $ = cheerio.load(body);
             // var document = $.root().html()
@@ -58,7 +58,9 @@ module.exports = function(app){
                 }
                 jobList.push(jobJSON);
             }
-            res.json(jobList)
+            var jobObject = { result: jobList}
+            res.json(jobObject)
         })
     })
+
 }
