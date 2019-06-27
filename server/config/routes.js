@@ -63,4 +63,17 @@ module.exports = function(app){
         })
     })
 
+    app.post('/api/indeed/info', (req, res) => {
+        request({uri: `https://www.indeed.com/viewjob?jk=${req.body.jk}`},
+            function(error, response, body) {
+            // var $ = cheerio.load(body);
+            // var document = $.root().html()
+            const dom = new JSDOM(body);
+            var currentdoc = dom.window.document
+            var info = currentdoc.getElementById('jobDescriptionText')
+            res.json(info.textContent)
+            }
+        )
+    })
+
 }
