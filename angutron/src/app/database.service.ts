@@ -12,12 +12,17 @@ export class DatabaseService {
 
 
   getAllJobs(submit) {
+    // return this._http.post('/api/indeed', submit);
     return interval(300000)
       .pipe(
         startWith(0),
         switchMap(() => this._http.post('/api/indeed', submit)),
         map(res => res)
       )
+  }
+
+  getJobInfo(id) {
+    return this._http.post('/api/indeed/info', {jk: id});
   }
 
   getAll(){

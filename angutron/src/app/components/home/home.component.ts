@@ -10,14 +10,14 @@ import { DatabaseService } from '../../database.service';
 })
 export class HomeComponent implements OnInit {
 
-  jobpostsdisplaytest;
   allJobs: any;
   selectedJob;
+  jobInfo;
   submit;
   constructor(private electron: ElectronService, private data: DatabaseService) { }
 
   ngOnInit() {
-    
+    this.submit = {keyword: "", location: ""};
   }
 
   OnSubmit() {
@@ -25,19 +25,29 @@ export class HomeComponent implements OnInit {
     console.log(observable);
     observable.subscribe(data => {
       this.allJobs = data['result'];
+      console.log(this.allJobs);
+      console.log(this.submit);
+      this.submit = {keyword: "", location: ""};
     })
 
   }
 
   jobToShow(id){
-    this.selectedJob = id;
+    let observable = this.data.getJobInfo(id["jk"]);
+    console.log(id["jk"]);
+    observable.subscribe(data => {
+      let jobInfo = data;
+      console.log(jobInfo);
+      id["detailinfo"] = jobInfo
+      this.selectedJob = id;
+    })
   }
 
-  // allJobs() {
-  //   let observable = this.data.getAllJobs();
+  // jobInfoToShow(id){
+  //   this.jobToShow(id);
+  //   let observable = this.data.getJobInfo(this.jobInfo);
   //   observable.subscribe(data => {
-  //     console.log(data);
-  //     this.jobInfo = data;
+  //     this.jobInfo = data['result'];
   //   })
   // }
 

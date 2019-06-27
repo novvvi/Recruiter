@@ -23,14 +23,12 @@ var ExperienceSchema = new mongoose.Schema({
     },
     specialty: {
         type: String,
-        required: 'Please enter tasks',
         trim: true
     },
     details: {
         type: String,
         default: '',
         trim: true,
-        required: 'Please enter details'
     },
     startDate: {
         type: Date,
