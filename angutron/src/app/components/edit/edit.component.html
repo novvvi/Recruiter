@@ -3,6 +3,9 @@
   <div style="height: 652px;width: 1041px;">
     <form (submit)="onSubmit()">
       <p class="d-xl-flex align-items-xl-center infotitle">Personal Info</p>
+      <div *ngFor='let x of errors'>
+        <p style="color: red">{{x}}</p>
+      </div>
       <div class="border rounded shadow userinfo">
         <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Full Name</label>
