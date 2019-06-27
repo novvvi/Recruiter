@@ -20,16 +20,24 @@ export class DatabaseService {
       )
   }
 
-  getAll() {
+  getAll(){
     return this._http.get('/user')
   }
 
-  create(user: any) {
+  getUser(id){
+    return this._http.get(`/user/${id}`)
+  }
+
+  create(user:any){
     return this._http.post('/create', user)
   }
 
-  update(id: any, user: any) {
-    return this._http.put(`/user/edit/${id}`, user)
+  update(id, body){
+    return this._http.put(`/user/edit/${id}`, body)
+  }
+
+  destroyUser(id){
+    return this._http.delete(`/destroy/user/${id}`)
   }
 
 
