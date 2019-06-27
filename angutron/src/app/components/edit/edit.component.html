@@ -1,61 +1,67 @@
 <div class="col"
   style="color: rgb(255,255,255);font-size: 17px;font-weight: normal;height: 735px;margin: 0px;margin-bottom: 0px;margin-right: px;width: 1066px;">
   <div style="height: 652px;width: 1041px;">
-    <form>
+    <form (submit)="onSubmit()">
       <p class="d-xl-flex align-items-xl-center infotitle">Personal Info</p>
+      <div *ngFor='let x of errors'>
+        <p style="color: red">{{x}}</p>
+      </div>
       <div class="border rounded shadow userinfo">
         <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Full Name</label>
-          <input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 237px;">
+          <input [(ngModel)]="newUser.fullName" name="newUser.fullName" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 237px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
             style="margin-left: 29px;width: 77px;">Email</label>
-            <input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
+            <input [(ngModel)]="newUser.email" name="newUser.email" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
           </div>
         <div class="d-inline-block float-left" style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Phone</label>
-          <input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 189px;">
+          <input [(ngModel)]="newUser.phoneNumber" name="newUser.phoneNumber" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 189px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
-            style="margin-left: 22px;width: 86px;">address</label>
-            <input class="form-control d-inline-block float-left"
+            style="margin-left: 22px;width: 86px;">Address</label>
+            <input [(ngModel)]="newUser.address" name="newUser.address" class="form-control d-inline-block float-left"
             type="text" style="height: 35px;width: 508px;">
           </div>
       </div>
       <!---this is where to for loop-->
-      <p class="d-xl-flex align-items-xl-center infotitle">Experiance</p>
-      <div class="border rounded shadow experiance-info">
-        <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
-          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Type</label>
-          <select class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
-            <optgroup label="Pick Type">
-              <option value="company" selected="">Company</option>
-              <option value="school">School</option>
-            </optgroup>
-          </select>
-          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
-            style="margin-left: 29px;width: 101px;">Company</label>
-            <input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
-          </div>
-        <div class="d-inline-block float-left" style="height: 44px;width: 910px;margin-top: 10px;margin-left: 20px;">
-          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Title</label>
-          <input class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
-          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 22px;width: 60px;">Start</label>
-            <input class="form-control d-inline-block float-left"
-            type="date" style="width: 168px;">
+      <p class="d-xl-flex align-items-xl-center infotitle">Experience</p>
+      <div id="skill"  style='width: 100%; height: 400px; overflow: scroll'>
+        <div class="border rounded shadow experiance-info">
+          <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Type</label>
+            <select [(ngModel)]="experience.type" name="experience.type" class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
+              <optgroup label="Pick Type">
+                <option name="experience.type" value="company" selected="">Company</option>
+                <option name="experience.type" value="school">School</option>
+              </optgroup>
+            </select>
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
-            style="margin-left: 22px;width: 68px;">End</label>
-            <input class="form-control d-inline-block float-left"
-            type="date" style="width: 168px;">
+              style="margin-left: 29px;width: 101px;">Name</label>
+              <input [(ngModel)]="experience.name" name="experience.name" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
+            </div>
+          <div class="d-inline-block float-left" style="height: 44px;width: 910px;margin-top: 10px;margin-left: 20px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Title</label>
+            <input [(ngModel)]="experience.title" name="experience.title" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 22px;width: 60px;">Start</label>
+              <input [(ngModel)]="experience.start" name="experience.start" class="form-control d-inline-block float-left"
+              type="date" style="width: 168px;">
+              <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+              style="margin-left: 22px;width: 68px;">End</label>
+              <input [(ngModel)]="experience.end" name="experience.end" class="form-control d-inline-block float-left"
+              type="date" style="width: 168px;">
+            </div>
+          <div class="d-inline-block float-left" style="height: 35pxpx;width: 910px;margin-top: 10px;margin-left: 20px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Specialty</label>
+            <input [(ngModel)]="experience.specialty" name="experience.specialty" class="form-control" type="text" style="height: 35px;width: 804px;">
           </div>
-        <div class="d-inline-block float-left" style="height: 35pxpx;width: 910px;margin-top: 10px;margin-left: 20px;">
-          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Specialty</label>
-          <input class="form-control" type="text" style="height: 35px;width: 804px;">
+          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+            style="margin-left: 21px;">Detail</label>
+            <textarea [(ngModel)]="experience.details" name="experience.details" class="form-control" style="margin-right: 28px;width: 910px;margin-left: 19px;height: 155px;"></textarea>
         </div>
-        <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
-          style="margin-left: 21px;">Detail</label>
-          <textarea class="form-control" style="margin-right: 28px;width: 910px;margin-left: 19px;height: 155px;"></textarea>
       </div>
-      <button class="btn btn-primary" type="button" style="margin-left: 709px;width: 105px;">Cancel</button>
-      <button class="btn btn-primary" type="button" style="margin-left: 54px;width: 109px;">Submit</button>
+      <button [routerLink]="['/']" class="btn btn-primary" type="button" style="margin-left: 500px;width: 105px;">Cancel</button>
+      <button class="btn btn-primary" type="submit" style="margin-left: 54px;width: 109px;">Submit</button>
+      <button (click)="addSkill()" class="btn btn-primary" type="button" style="margin-left: 54px;width: 109px;">Add Experience</button>
     </form>
   </div>
 </div>

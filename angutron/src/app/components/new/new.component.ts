@@ -8,15 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
-  user = {
-    fn: '',
-    ln: '',
-    phone: '',
-    email: '',
-    address: '',
-    skills: [],
-  }
-  errors = [];
+
 
   constructor(
     private _httpService: DatabaseService,
@@ -25,32 +17,8 @@ export class NewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    
   }
-
-  onSubmit(author:any){
-    this.errors = [];
-    let observable = this._httpService.create(this.user);
-    observable.subscribe(data => {
-      if(data['message'] === "Success"){
-      console.log("created author", data);
-      this.user.fn = '';
-      this.user.ln = '';
-      this.user.phone = '';
-      this.user.email = '';
-      this.user.address = '';
-      this.user.skills = [];
-      this._router.navigate(['/']);
-    } else {
-      this.errors.push(data['error']['errors']['name']['message'])
-    }
-    })
-  }
-
-  addSkill(){
-    var add = "<label for='inputPassword' class='col-sm-2 col-form-label'>Skill:</label><div class='col-sm-10'><input type='text' class='form-control' placeholder='Skills' [(ngModel)]='user.skills' name='user.skills'><br>"
-    document.getElementById('skill').innerHTML += add;
-  }
-
 
 
 }

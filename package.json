@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/novvvi/Recuiter#readme",
   "dependencies": {
+    "@angular/core": "^8.0.2",
+    "@angular/router": "^8.0.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.6.1",
     "mongoose-unique-validator": "^2.0.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "jsdom": "^15.1.1"
   }
 }

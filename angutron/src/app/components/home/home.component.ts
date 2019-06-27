@@ -9,6 +9,7 @@ import { DatabaseService } from '../../database.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
   jobpostsdisplaytest;
   allJobs: any;
   selectedJob;
@@ -39,4 +40,5 @@ export class HomeComponent implements OnInit {
   //     this.jobInfo = data;
   //   })
   // }
+
 }
