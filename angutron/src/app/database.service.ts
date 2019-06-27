@@ -8,53 +8,34 @@ import { interval } from 'rxjs';
 })
 export class DatabaseService {
 
-  constructor(private _http: HttpClient){}
+  constructor(private _http: HttpClient) {}
 
-  // getAllJobs() {
-  //   return interval(5000)
-  //     .pipe(
-  //       startWith(0),
-  //       switchMap(() => this._http.get("http://api.openweathermap.org/data/2.5/weather?id=4887398&APPID=93447b78ed332dc0065cc3d3cb874fe6")),
-  //       map(res => res)
-  //     )
-  // }
 
-  getAll(){
+  getAllJobs(submit) {
+    return interval(300000)
+      .pipe(
+        startWith(0),
+        switchMap(() => this._http.post('/api/indeed', submit)),
+        map(res => res)
+      )
+  }
+
+  getAll() {
     return this._http.get('/user')
   }
 
-  create(user:any){
+  create(user: any) {
     return this._http.post('/create', user)
   }
 
-  update(id:any, user:any){
+  update(id: any, user: any) {
     return this._http.put(`/user/edit/${id}`, user)
   }
 
+
   // here is what you need to use for parsing indeed
 
-  parsingOnePage(doc) {
-    var selectedClasses = ["title", "sjcl", "summary", "iaWrapper", "jobsearch-SerpJobCard-footer"]
-    var jobList = []
-    var jobsList_RAW = doc.getElementsByClassName('jobsearch-SerpJobCard');
-    for (let i = 0; i < jobsList_RAW.length; i++){
-      let jobJSON = {
-      }
-      jobJSON["jk"] = jobsList_RAW[i].dataset.jk;
-      let jobClassList = jobsList_RAW[i].childNodes;
-      for (let n = 0; n < jobClassList.length; n++){
-        if (jobClassList[n].nodeName != "#text"){
-          let thisClass = jobClassList[n];
-          if (selectedClasses.indexOf(thisClass.className) != -1 ) {
-            let innerText = thisClass.innerText;
-            jobJSON[thisClass.className] = innerText;
-          }
-        }
-      }
-      jobList.push(jobJSON);
-    }
-  }
-  
+
 }
 
 

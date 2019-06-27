@@ -4,33 +4,39 @@ import { DatabaseService } from '../../database.service';
 
 
 @Component({
- selector: 'app-home',
- templateUrl: './home.component.html',
- styleUrls: ['./home.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  jobpostsdisplaytest;
+  allJobs: any;
+  selectedJob;
+  submit;
+  constructor(private electron: ElectronService, private data: DatabaseService) { }
 
- jobInfo: any;
+  ngOnInit() {
+    
+  }
 
- constructor(private electron: ElectronService, private data: DatabaseService) { }
+  OnSubmit() {
+    let observable = this.data.getAllJobs(this.submit);
+    console.log(observable);
+    observable.subscribe(data => {
+      this.allJobs = data['result'];
+    })
 
- ngOnInit() {
-  //  this.keyword()
- }
+  }
 
- closeWindow() {
-   this.electron.window.close();
- }
+  jobToShow(id){
+    this.selectedJob = id;
+  }
 
- minimizeWindow() {
-   this.electron.window.minimize();
- }
-
-//  keyword() {
-//    let observable = this.data.getAllJobs();
-//    observable.subscribe(data => {
-//      console.log(data);
-//      this.jobInfo = data;
-//    })
-//  }
+  // allJobs() {
+  //   let observable = this.data.getAllJobs();
+  //   observable.subscribe(data => {
+  //     console.log(data);
+  //     this.jobInfo = data;
+  //   })
+  // }
 }

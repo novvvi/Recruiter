@@ -21,7 +21,7 @@ const routes: Routes = [
         component: EditComponent
     },
     {
-        path: 'show',
+        path: 'show/:id',
         component: ShowComponent
     },
     { path: '', pathMatch: 'full', redirectTo: '/' },
