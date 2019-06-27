@@ -7,23 +7,41 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   styleUrls: ['./show.component.scss']
 })
 export class ShowComponent implements OnInit {
-  allUsers;
+  editUser;
+  userId;
   constructor(
     private _httpService: DatabaseService,
     private _route: ActivatedRoute,
     private _router: Router
   ) { }
-
   ngOnInit() {
-    this.getAllUsers();
+    this._route.params.subscribe((params: Params) => {
+      this.userId = params['id'];
+    })
+    this.getUser(this.userId);
   }
-  getAllUsers(){
-    let observable = this._httpService.getAll();
+  getUser(id) {
+    let observable = this._httpService.getUser(id);
     observable.subscribe(data => {
       console.log("Got All Users", data)
-      console.log(data['data'])
-      this.allUsers = data['data']
+      this.editUser = data['data']
     })
   }
-
+  updateUser(){
+    console.log(this.editUser)
+    let observable = this._httpService.update(this.editUser);
+    observable.subscribe(data => {
+      console.log(this.editUser)
+      if (data['message'] === "Success"){
+        this._router.navigate(['/user']);
+      }
+    })
+  }
+  destroyUser(id) {
+    let observable = this._httpService.destroyUser(id);
+    observable.subscribe(data => {
+      console.log(data);
+    })
+    this.getUser(this.userId);
+  }
 }

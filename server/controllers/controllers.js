@@ -38,5 +38,25 @@ module.exports = {
                 res.json({  message: "Success", user: user });
             }
         })
+    },
+    show: (req, res) => {
+        User.findOne({_id: req.params.id}, (err, data) => {
+            if(err) {
+                res.json({message: "Error", error: err});
+            } else {
+                console.log(data);
+                res.json({message: "Success", data: data});
+            }
+        })
+    },
+    destroy: (req, res) => {
+        User.remove({_id: req.params.id}, (err, data) => {
+            if(err) {
+                res.json({message: "Error", error: err});
+            } else {
+                console.log("DELETED!", data);
+                res.json({message: "Success", data: data});
+            }
+        })
     }
 }

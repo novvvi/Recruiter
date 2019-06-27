@@ -9,8 +9,16 @@ module.exports = function(app){
         user.create(req, res);
     })
 
+    app.get('/user/:id', (req, res) => {
+        user.show(req, res);
+    })
+
     app.put('/user/edit/:id', function(req,res){
         user.update(req,res);
+    })
+
+    app.delete('/destroy/user/:id', (req, res) => {
+        user.destroy(req, res)
     })
 
 }

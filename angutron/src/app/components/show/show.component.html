@@ -1,11 +1,65 @@
-<div>
-  <header>
-    <h1>User Profile</h1>
-    <a [routerLink]="[ '/' ]">Home</a>
-  </header>
-  <main>
-    <div *ngFor="let user of allUsers">
-      <h2>Name: {{ user.fullName }}</h2>
-    </div>
-  </main>
+<div class="col"
+  style="color: rgb(255,255,255);font-size: 17px;font-weight: normal;height: 735px;margin: 0px;margin-bottom: 0px;margin-right: px;width: 1066px;">
+  <div style="height: 652px;width: 1041px;">
+    <form (submit)="updateeditUser()">
+      <p class="d-xl-flex align-items-xl-center infotitle">editUser Profile</p>
+      <div class="border rounded shadow editUserinfo">
+        <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
+          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Full Name</label>
+          <input [(ngModel)]="editUser.fullName" name="editUser.fullName" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 237px;">
+          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+            style="margin-left: 29px;width: 77px;">Email</label>
+            <input [(ngModel)]="editUser.email" name="editUser.email" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
+          </div>
+        <div class="d-inline-block float-left" style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
+          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Phone</label>
+          <input [(ngModel)]="editUser.phoneNumber" name="editUser.phoneNumber" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 189px;">
+          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+            style="margin-left: 22px;width: 86px;">Address</label>
+            <input [(ngModel)]="editUser.address" name="editUser.address" class="form-control d-inline-block float-left"
+            type="text" style="height: 35px;width: 508px;">
+          </div>
+      </div>
+      <!---this is where to for loop-->
+      <p class="d-xl-flex align-items-xl-center infotitle">Experience</p>
+      <div id="skill"  style='width: 100%; height: 400px; overflow: scroll'>
+        <div class="border rounded shadow experiance-info">
+          <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Type</label>
+            <select [(ngModel)]="editUser.ExpType" name="editUser.ExpType" class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
+              <optgroup label="Pick Type">
+                <option name="editUser.ExpType" value="company" selected="">Company</option>
+                <option name="editUser.ExpType" value="school">School</option>
+              </optgroup>
+            </select>
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+              style="margin-left: 29px;width: 101px;">Name</label>
+              <input [(ngModel)]="editUser.ExpName" name="editUser.ExpName" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
+            </div>
+          <div class="d-inline-block float-left" style="height: 44px;width: 910px;margin-top: 10px;margin-left: 20px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Title</label>
+            <input [(ngModel)]="editUser.ExpTitle" name="editUser.ExpTitle" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 296px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel" style="margin-left: 22px;width: 60px;">Start</label>
+              <input [(ngModel)]="editUser.ExpStartDate" name="editUser.ExpStartDate" class="form-control d-inline-block float-left"
+              type="date" style="width: 168px;">
+              <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+              style="margin-left: 22px;width: 68px;">End</label>
+              <input [(ngModel)]="editUser.ExpEndDate" name="editUser.ExpEndDate" class="form-control d-inline-block float-left"
+              type="date" style="width: 168px;">
+            </div>
+          <div class="d-inline-block float-left" style="height: 35pxpx;width: 910px;margin-top: 10px;margin-left: 20px;">
+            <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Specialty</label>
+            <input [(ngModel)]="editUser.ExpSpecialty" name="editUser.ExpSpecialty" class="form-control" type="text" style="height: 35px;width: 804px;">
+          </div>
+          <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
+            style="margin-left: 21px;">Detail</label>
+            <textarea [(ngModel)]="editUser.ExpDetails" name="editUser.ExpDetails" class="form-control" style="margin-right: 28px;width: 910px;margin-left: 19px;height: 155px;"></textarea>
+        </div>
+      </div>
+      <button [routerLink]="['/']" class="btn btn-primary" type="button" style="margin-left: 500px;width: 105px;">Cancel</button>
+      <button class="btn btn-primary" type="submit" style="margin-left: 54px;width: 109px;">EDIT</button>
+      <button (click)="addSkill()" class="btn btn-primary" type="button" style="margin-left: 54px;width: 109px;">Add Experience</button>
+      <button (click)="destroyeditUser(editUser._id)" class="btn btn-primary" type="button" style="margin-left: 54px;width: 109px;">DELETE</button>
+    </form>
+  </div>
 </div>
