@@ -9,6 +9,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 export class ShowComponent implements OnInit {
   editUser;
   errors;
+  experience;
   userId = "5d14ed8896c8491cda204863";
   constructor(
     private _httpService: DatabaseService,
@@ -16,10 +17,21 @@ export class ShowComponent implements OnInit {
     private _router: Router
   ) { }
   ngOnInit() {
-    // this._route.params.subscribe((params: Params) => {
+    // this.getAll(); comment this and getAll on bottom out if you have nothing in your db
+
+    this.getUser(this.userId);
+    this.experience = {
+      type: '',
+      name: '',
+      title: '',
+      specialty: '',
+      details: '',
+      start: '',
+      end: ''
+    }
+        // this._route.params.subscribe((params: Params) => {
     //   this.userId = params['id'];
     // })
-    this.getUser(this.userId);
   }
   getUser(id) {
     let observable = this._httpService.getUser(id);
@@ -30,6 +42,7 @@ export class ShowComponent implements OnInit {
     })
   }
   updateUser(id, body){
+    this.editUser.experience.push(this.experience)
     console.log(this.editUser)
     let observable = this._httpService.update(id, body);
     observable.subscribe(data => {
@@ -48,6 +61,25 @@ export class ShowComponent implements OnInit {
     })
     this.getUser(this.userId);
   }
+  onSubmit(id:any, pet:any){
+    this.errors = [];
+    let observable = this._httpService.update(this.userId, this.editUser);
+    observable.subscribe(data=> {
+      if(data['message'] === "Success"){
+        this._router.navigate(['/']);
+      } else {
+        this.errors.push(data['error']['errors']['name']['message'])
+        this.errors.push(data['error']['errors']['type']['message'])
+        this.errors.push(data['error']['errors']['description']['message'])
+      }
+    })
+  }
+  // getAll(){
+  //   this._httpService.getAll().subscribe(data => {
+  //     console.log('got user!', data);
+  //     this.editUser = data['data'];
+  //   })
+  // }
   
 }
 
