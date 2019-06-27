@@ -8,6 +8,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 })
 export class ShowComponent implements OnInit {
   editUser;
+  errors;
   userId = "5d14ed8896c8491cda204863";
   constructor(
     private _httpService: DatabaseService,
@@ -28,13 +29,15 @@ export class ShowComponent implements OnInit {
       console.log(this.editUser.experience);
     })
   }
-  updateUser(){
+  updateUser(id, body){
     console.log(this.editUser)
-    let observable = this._httpService.update(this.editUser);
+    let observable = this._httpService.update(id, body);
     observable.subscribe(data => {
       console.log(this.editUser)
       if (data['message'] === "Success"){
         this._router.navigate(['/']);
+      } else {
+        console.log(data);
       }
     })
   }
@@ -45,4 +48,5 @@ export class ShowComponent implements OnInit {
     })
     this.getUser(this.userId);
   }
+  
 }

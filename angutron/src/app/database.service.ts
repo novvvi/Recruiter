@@ -22,8 +22,8 @@ export class DatabaseService {
     return this._http.post('/create', user)
   }
 
-  update(id){
-    return this._http.put(`/user/edit/${id}`, id)
+  update(id, body){
+    return this._http.put(`/user/edit/${id}`, body)
   }
 
   destroyUser(id){
