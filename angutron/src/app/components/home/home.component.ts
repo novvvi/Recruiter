@@ -1,4 +1,4 @@
-import { Component, OnInit, APP_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ElectronService } from '../../providers/electron.service';
 import { DatabaseService } from '../../database.service';
 

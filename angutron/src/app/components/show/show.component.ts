@@ -34,7 +34,7 @@ export class ShowComponent implements OnInit {
     observable.subscribe(data => {
       console.log(this.editUser)
       if (data['message'] === "Success"){
-        this._router.navigate(['/user']);
+        this._router.navigate(['/']);
       }
     })
   }
