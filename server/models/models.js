@@ -28,7 +28,7 @@ var ExperienceSchema = new mongoose.Schema({
     details: {
         type: String,
         default: '',
-        trim: true,g9
+        trim: true,
     },
     startDate: {
         type: Date,
