@@ -21,6 +21,10 @@ export class DatabaseService {
       )
   }
 
+  getJobInfo(id) {
+    return this._http.post('/api/indeed/info', {jk: id});
+  }
+
   getAll(){
     return this._http.get('/user')
   }

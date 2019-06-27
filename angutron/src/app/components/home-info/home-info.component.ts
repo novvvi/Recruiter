@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ElectronService } from '../../providers/electron.service';
+import { DatabaseService } from '../../database.service';
 
 @Component({
   selector: 'app-home-info',
@@ -7,10 +9,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeInfoComponent implements OnInit {
   @Input() jobToShow: any;
-  constructor() { }
+  jobInfo;
+  jk;
+  constructor(private electron: ElectronService, private data: DatabaseService) { }
 
   ngOnInit() {
-
   }
 
+  update() {
+    this.jk = this.jobToShow['jk'];
+    this.jobInfoToShow();
+  }
+
+  jobInfoToShow() {
+    let observable = this.data.getJobInfo(this.jk);
+    console.log(this.jk);
+    observable.subscribe(data => {
+      this.jobInfo = data;
+      console.log(this.jobInfo);
+    })
+  }
 }
