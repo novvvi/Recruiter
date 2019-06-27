@@ -31,6 +31,10 @@ export class DatabaseService {
     return this._http.put(`/user/edit/${id}`, user)
   }
 
+  createExp(id:any,exp:any){
+    return this._http.post(`create/exp/${id}`, exp)
+  }
+
   // here is what you need to use for parsing indeed
 
   parsingOnePage(doc) {

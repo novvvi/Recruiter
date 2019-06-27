@@ -9,6 +9,10 @@ module.exports = function(app){
         user.create(req, res);
     })
 
+    app.post('/create/exp/:id', function (req, res) {
+        user.createexp(req, res);
+    })
+
     app.put('/user/edit/:id', function(req,res){
         user.update(req,res);
     })

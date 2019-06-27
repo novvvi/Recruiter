@@ -8,13 +8,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
+  // user = {
+  //   fn: '',
+  //   ln: '',
+  //   phone: '',
+  //   email: '',
+  //   address: '',
+  //   skills: [],
+  // }
   user = {
-    fn: '',
-    ln: '',
-    phone: '',
+    fullName: '',
+    phoneNumber: '',
     email: '',
     address: '',
-    skills: [],
+    experience: [],
+  }
+  experience = {
+    type: '',
+    name: '',
+    title: '',
+    specialty: '',
+    details: '',
   }
   errors = [];
 
@@ -25,6 +39,7 @@ export class NewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    
   }
 
   onSubmit(author:any){
@@ -33,12 +48,12 @@ export class NewComponent implements OnInit {
     observable.subscribe(data => {
       if(data['message'] === "Success"){
       console.log("created author", data);
-      this.user.fn = '';
-      this.user.ln = '';
-      this.user.phone = '';
-      this.user.email = '';
-      this.user.address = '';
-      this.user.skills = [];
+      // this.user.fn = '';
+      // this.user.ln = '';
+      // this.user.phone = '';
+      // this.user.email = '';
+      // this.user.address = '';
+      // this.user.skills = [];
       this._router.navigate(['/']);
     } else {
       this.errors.push(data['error']['errors']['name']['message'])
@@ -50,7 +65,5 @@ export class NewComponent implements OnInit {
     var add = "<label for='inputPassword' class='col-sm-2 col-form-label'>Skill:</label><div class='col-sm-10'><input type='text' class='form-control' placeholder='Skills' [(ngModel)]='user.skills' name='user.skills'><br>"
     document.getElementById('skill').innerHTML += add;
   }
-
-
 
 }

@@ -6,17 +6,17 @@
       <div class="border rounded shadow userinfo">
         <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Full Name</label>
-          <input [(ngModel)]="user.name" name="user.name" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 237px;">
+          <input [(ngModel)]="newUser.fullName" name="newUser.fullName" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 237px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
             style="margin-left: 29px;width: 77px;">Email</label>
-            <input [(ngModel)]="user.email" name="user.email" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
+            <input [(ngModel)]="newUser.email" name="newUser.email" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 461px;">
           </div>
         <div class="d-inline-block float-left" style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Phone</label>
-          <input [(ngModel)]="user.phone" name="user.phone" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 189px;">
+          <input [(ngModel)]="newUser.phoneNumber" name="newUser.phoneNumber" class="form-control d-inline-block float-left" type="text" style="height: 35px;width: 189px;">
           <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel"
             style="margin-left: 22px;width: 86px;">Address</label>
-            <input [(ngModel)]="user.address" name="user.address" class="form-control d-inline-block float-left"
+            <input [(ngModel)]="newUser.address" name="newUser.address" class="form-control d-inline-block float-left"
             type="text" style="height: 35px;width: 508px;">
           </div>
       </div>
@@ -26,7 +26,7 @@
         <div class="border rounded shadow experiance-info">
           <div style="height: 35px;width: 910px;margin-top: 10px;margin-left: 20px;">
             <label class="d-inline-block float-left d-xl-flex align-items-xl-center infolabel">Type</label>
-            <select [(ngModel)]="experience.type"  class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
+            <select [(ngModel)]="experience.type" name="experience.type" class="form-control d-inline-block float-left" style="height: 35px;width: 212px;">
               <optgroup label="Pick Type">
                 <option name="experience.type" value="company" selected="">Company</option>
                 <option name="experience.type" value="school">School</option>

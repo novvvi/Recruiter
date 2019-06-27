@@ -5,48 +5,21 @@ var validateEmail = (email) => {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
 };
-// var AddressSchema = {
-//     street1: {
-//         type: String,
-//         trim: true
-//     },
-//     street2: {
-//         type: String,
-//         trim: true
-//     },
-//     city: {
-//         type: String,
-//         trim: true
-//     },
-//     state: {
-//         type: String,
-//         trim: true
-//     },
-//     country: {
-//         type: String,
-//         trim: true
-//     },
-//     zip: {
-//         type: String,
-//         validate: [/^$|^[0-9]{5}$/, 'ValidationError'],
-//         trim: true
-//     }
-// }
-var ExperienceSchema = {
+var ExperienceSchema = new mongoose.Schema({
     type: {
-        type: String
+        type: String,
+        default: '',
+        trim: true
     },
     name: {
         type: String,
-        default: "",
-        required: 'Please enter a name',
+        default: '',
         trim: true
     },
     title: {
         type: String,
 		default: '',
 		trim: true,
-		required: 'Please enter a title'
     },
     specialty: {
         type: String,
@@ -69,7 +42,7 @@ var ExperienceSchema = {
         default: new Date(+new Date() + 7*24*60*60*1000),
         default: () => Date.now() + 7*24*60*60*1000 // need to ceeck which one works
     }
-}
+}, {timestamps: true})
 
 var UserSchema = new mongoose.Schema({
     fullName: {
@@ -88,19 +61,14 @@ var UserSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: Number,
-        // trim: true,
-        // unique: true,
+        trim: true,
+        unique: true,
         required: [true, "Please enter your phone number '(000)-000-0000'."],
-    },
-    keyword: {
-        type: String,
-        trim: true
     },
     address: {
         type: String,
         require: [true, "Please enter your full address."]
     },
-    
     experience: [ExperienceSchema]
 }, {timestamps: true})
 
@@ -109,3 +77,4 @@ UserSchema.plugin(uniqueValidator, {
 });
 
 module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Experience', ExperienceSchema)

@@ -16,5 +16,5 @@ require('./server/config/routes')(app);
 // });
 
 app.listen(4200, function() {
-    console.log("4200 running");
+    console.log("8000 running");
 })
