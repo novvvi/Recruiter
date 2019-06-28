@@ -43,12 +43,4 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  // jobInfoToShow(id){
-  //   this.jobToShow(id);
-  //   let observable = this.data.getJobInfo(this.jobInfo);
-  //   observable.subscribe(data => {
-  //     this.jobInfo = data['result'];
-  //   })
-  // }
-
 }

@@ -21,4 +21,7 @@ export class NewComponent implements OnInit {
   }
 
 
+  navigate(){
+    window.open('https://google.com', '_blank');
+  }
 }

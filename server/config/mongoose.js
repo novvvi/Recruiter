@@ -2,6 +2,7 @@ var path = require('path');
 
 var fs = require('fs'); // able to use all the files
 
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/appRecuiter');
 mongoose.Promise = global.Promise;
