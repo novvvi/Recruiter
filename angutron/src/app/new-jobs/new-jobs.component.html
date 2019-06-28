@@ -1,0 +1,15 @@
+<div style="height: 714px;width: 1041px;">
+  <form>
+    <p class="d-xl-flex align-items-xl-center infotitle">New Jobs</p>
+    <div class="border rounded shadow userinfo">
+      <div style="overflow: scroll; height: 600px;width: 940px;margin-top: 10px;margin-left: 5px;">
+        <div *ngFor="let job of newJobsfromService" class="box1">
+          <p><u><b>{{job.title}}</b></u></p>
+          <h3>{{job.sjcl}}</h3>
+          <h5>{{job.city}}</h5>
+          <h6>{{job.summary}}</h6>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

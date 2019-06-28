@@ -25,9 +25,11 @@ export class HomeComponent implements OnInit {
     console.log(observable);
     observable.subscribe(data => {
       this.allJobs = data['result'];
+      this.data.newJobs = this.allJobs;
       console.log(this.allJobs);
       console.log(this.submit);
       this.submit = {keyword: "", location: ""};
+      this.data.jobComparison();
     })
 
   }

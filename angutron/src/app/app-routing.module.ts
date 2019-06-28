@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NewComponent } from './components/new/new.component';
 import { EditComponent } from './components/edit/edit.component';
 import { ShowComponent } from './components/show/show.component';
+import { NewJobsComponent } from './new-jobs/new-jobs.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
@@ -15,6 +16,10 @@ const routes: Routes = [
     {
         path: 'new',
         component: NewComponent
+    },
+    {
+        path: 'new/jobs',
+        component: NewJobsComponent
     },
     {
         path: 'edit',

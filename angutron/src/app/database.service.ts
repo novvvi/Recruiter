@@ -9,11 +9,13 @@ import { interval } from 'rxjs';
 export class DatabaseService {
 
   constructor(private _http: HttpClient) {}
-
+  newJobs;
+  oldJobs;
+  latestJobs;
 
   getAllJobs(submit) {
     // return this._http.post('/api/indeed', submit);
-    return interval(300000)
+    return interval(10000)
       .pipe(
         startWith(0),
         switchMap(() => this._http.post('/api/indeed', submit)),
@@ -45,6 +47,25 @@ export class DatabaseService {
     return this._http.delete(`/destroy/user/${id}`)
   }
 
+  jobComparison(){
+    var newList = [];
+    if (this.oldJobs == null) {
+      this.oldJobs = this.newJobs;
+    } else {
+      for (var i = 0; i < this.oldJobs.length; i++){
+        for (var j = 0; j < this.newJobs.length; j++){
+          console.log("$$$$$$$$$$$$$$$$$")
+          console.log("oldJobs: " + this.oldJobs[i]['jk']);
+          console.log("newJobs: " + this.newJobs[j]['jk']);
+          if (this.newJobs[j]['jk'] != this.oldJobs[i]['jk']) {
+            newList.push(this.newJobs[j]);
+          }
+        }
+      }
+    }
+    this.latestJobs = newList
+    console.log(this.latestJobs);
+  }
 
   // here is what you need to use for parsing indeed
 
