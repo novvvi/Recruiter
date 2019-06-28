@@ -10,16 +10,15 @@ export class ShowComponent implements OnInit {
   editUser;
   errors;
   experience;
-  userId = "5d14ed8896c8491cda204863";
+  userId;
   constructor(
     private _httpService: DatabaseService,
     private _route: ActivatedRoute,
     private _router: Router
   ) { }
   ngOnInit() {
-    // this.getAll(); comment this and getAll on bottom out if you have nothing in your db
+    this.getAll(); 
 
-    this.getUser(this.userId);
     this.experience = {
       type: '',
       name: '',
@@ -29,18 +28,9 @@ export class ShowComponent implements OnInit {
       start: '',
       end: ''
     }
-        // this._route.params.subscribe((params: Params) => {
-    //   this.userId = params['id'];
-    // })
+
   }
-  getUser(id) {
-    let observable = this._httpService.getUser(id);
-    observable.subscribe(data => {
-      console.log("Got All Users", data)
-      this.editUser = data['data']
-      console.log(this.editUser.experience);
-    })
-  }
+
   updateUser(id, body){
     this.editUser.experience.push(this.experience)
     console.log(this.editUser)
@@ -58,8 +48,9 @@ export class ShowComponent implements OnInit {
     let observable = this._httpService.destroyUser(id);
     observable.subscribe(data => {
       console.log(data);
+      this._router.navigate(['/']);
     })
-    this.getUser(this.userId);
+    this._router.navigate(['/']);
   }
   onSubmit(id:any, pet:any){
     this.errors = [];
@@ -74,12 +65,14 @@ export class ShowComponent implements OnInit {
       }
     })
   }
-  // getAll(){
-  //   this._httpService.getAll().subscribe(data => {
-  //     console.log('got user!', data);
-  //     this.editUser = data['data'];
-  //   })
-  // }
+  getAll(){
+    this._httpService.getAll().subscribe(data => {
+      console.log('got user!', data);
+      this.userId = data['data'][0]['_id'];
+      this.editUser = data['data'][0];
+      console.log(this.editUser[0]);
+    })
+  }
   
 }
 

@@ -13,9 +13,10 @@ function createWindow() {
     win = new electron_1.BrowserWindow({
         x: 1280,
         y: 760,
-        width: 1280,
-        height: 760,
-        frame: false,
+        width: 1300,
+        height: 875,
+        frame: true,
+        resizable: false,
         webPreferences: {
             nodeIntegration: true,
         },
@@ -33,9 +34,9 @@ function createWindow() {
             slashes: true
         }));
     }
-    if (serve) {
-        win.webContents.openDevTools();
-    }
+    // if (serve) {
+    //   win.webContents.openDevTools();
+    // }
     // Emitted when the window is closed.
     win.on('closed', function () {
         // Dereference the window object, usually you would store window

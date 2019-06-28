@@ -15,9 +15,10 @@ function createWindow() {
   win = new BrowserWindow({
     x: 1280,
     y: 760,
-    width: 1280,
-    height: 760,
-    frame: false,
+    width: 1300,
+    height: 875,
+    frame: true,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -36,9 +37,9 @@ function createWindow() {
     }));
   }
 
-  if (serve) {
-    win.webContents.openDevTools();
-  }
+  // if (serve) {
+  //   win.webContents.openDevTools();
+  // }
 
   // Emitted when the window is closed.
   win.on('closed', () => {
