@@ -45,7 +45,14 @@ export class DatabaseService {
     return this._http.delete(`/destroy/user/${id}`)
   }
 
+  gencv(body){
+    console.log(body);
+    return this._http.post('/api/makecv', body)
+  }
 
+  genresume(body){
+    return this._http.post('/api/makeresume', body)
+  }
   // here is what you need to use for parsing indeed
 
 
