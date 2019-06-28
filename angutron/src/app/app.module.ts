@@ -23,6 +23,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { ShowComponent } from './components/show/show.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomeInfoComponent } from './components/home-info/home-info.component';
+import { NewJobsComponent } from './new-jobs/new-jobs.component';
 
 
 // AoT requires an exported function for factories
@@ -40,7 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShowComponent,
     PagenotfoundComponent,
     HomeInfoComponent,
-
+    NewJobsComponent
   ],
   imports: [
     BrowserModule,
