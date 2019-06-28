@@ -11,11 +11,10 @@ function createWindow() {
     var size = electronScreen.getPrimaryDisplay().workAreaSize;
     // Create the browser window.
     win = new electron_1.BrowserWindow({
-        x: 1280,
-        y: 760,
-        width: 1280,
-        height: 760,
-        frame: false,
+        width: 1300,
+        height: 800,
+        frame: true,
+        resizable: false,
         webPreferences: {
             nodeIntegration: true,
         },

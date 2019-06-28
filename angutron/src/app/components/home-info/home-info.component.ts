@@ -29,4 +29,8 @@ export class HomeInfoComponent implements OnInit {
       console.log(this.jobInfo);
     })
   }
+
+  onNav(jk){
+    window.open(`https://indeed.com/viewjob?jk=${jk}`, '_blank')
+  }
 }
