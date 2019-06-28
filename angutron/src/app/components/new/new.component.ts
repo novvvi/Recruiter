@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
-
+  user;
 
   constructor(
     private _httpService: DatabaseService,
@@ -20,5 +20,20 @@ export class NewComponent implements OnInit {
     
   }
 
+
+  thisgenresume(user:any){
+    this._httpService.genresume(user).subscribe(data => {
+      console.log(data);
+    })
+  }
+
+  thisgetAll(){
+    this._httpService.getAll().subscribe(data => {
+      console.log('got user!', data);
+      this.user = data['data'][0];
+      console.log(this.user);
+      this.thisgenresume(this.user)
+    })
+  }
 
 }

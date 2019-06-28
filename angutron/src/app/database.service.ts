@@ -67,6 +67,14 @@ export class DatabaseService {
     console.log(this.latestJobs);
   }
 
+  gencv(body){
+    console.log(body);
+    return this._http.post('/api/makecv', body)
+  }
+
+  genresume(body){
+    return this._http.post('/api/makeresume', body)
+  }
   // here is what you need to use for parsing indeed
 
 

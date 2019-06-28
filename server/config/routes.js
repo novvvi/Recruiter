@@ -2,6 +2,11 @@ var user = require('../controllers/controllers');
 var jsdom = require("jsdom")
 const { JSDOM } = jsdom;
 var request = require('request');
+var fs = require('fs');
+var pdf = require('html-pdf');
+var jquery = require('jquery');
+var makepdf = require('../../makepdf');
+var makeres = require('../../makeres');
 
 module.exports = function(app){
     app.get('/user', function (req, res) {
@@ -74,6 +79,14 @@ module.exports = function(app){
             res.json(info.textContent)
             }
         )
+    })
+
+    app.post('/api/makecv', (req,res) => {
+        makepdf(req.body);
+    })
+
+    app.post('/api/makeresume', (req,res) => {
+        makeres(req.body)
     })
 
 }
